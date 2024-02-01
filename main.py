@@ -25,9 +25,9 @@ heat_dissipated_controller = (1 - controller_efficiency) * controller_continuous
 total_heat_dissipation = heat_dissipated_motor + heat_dissipated_controller
 
 # Print the results
-print(f"Heat to be dissipated by the motor: {heat_dissipated_motor:.2f} W")
-print(f"Heat to be dissipated by the controller: {heat_dissipated_controller:.2f} W")
-print(f"Total heat to be dissipated by the cooling system: {total_heat_dissipation:.2f} W")
+print(f"Heat to be dissipated by the motor: {heat_dissipated_motor} W")
+print(f"Heat to be dissipated by the controller: {heat_dissipated_controller} W")
+print(f"Total heat to be dissipated by the cooling system: {total_heat_dissipation} W")
 
 # Assuming an ambient temperature of 30 degrees Celsius for the cooling system design
 T_ambient = 30  # Ambient temperature in degrees Celsius
