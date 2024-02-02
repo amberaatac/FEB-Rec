@@ -1,7 +1,6 @@
 import numpy as np
 
 # EMRAX 228 Motor
-motor_peak_power = 124000  # Peak power in Watts
 motor_continuous_power = 75000  # Continuous power in Watts
 motor_efficiency = 0.96  # Motor efficiency
 motor_coolant_flow_rate = 6 / 60  # Coolant flow rate in kg/s (from 6 L/min to kg/s)
@@ -14,11 +13,11 @@ controller_coolant_flow_rate = 10 / 60  # Coolant flow rate in kg/s (from 10 L/m
 # Combined cooling requirements
 combined_coolant_flow_rate = motor_coolant_flow_rate + controller_coolant_flow_rate  # Combined flow rate for coolant
 
-# Specific heat capacity of coolant - Assuming 50/50 Ethylene Glycol and Water mixture
-Cp_coolant = 3680  # Specific heat capacity in J/(kg*K) for 50/50 EGW mix
+# Specific heat capacity of coolant water
+Cp_coolant = 4182  # Specific heat capacity in J/(kg*K) 
 
 # Heat dissipation calculations
-heat_dissipated_motor = (1 - motor_efficiency) * motor_peak_power  # Heat to be dissipated by motor
+heat_dissipated_motor = (1 - motor_efficiency) * motor_continuous_power  # Heat to be dissipated by motor
 heat_dissipated_controller = (1 - controller_efficiency) * controller_continuous_power  # Heat to be dissipated by controller
 
 # Total heat to be dissipated by the cooling system
@@ -27,7 +26,7 @@ total_heat_dissipation = heat_dissipated_motor + heat_dissipated_controller
 # Print the results
 print(f"Heat to be dissipated by the motor: {heat_dissipated_motor} W")
 print(f"Heat to be dissipated by the controller: {heat_dissipated_controller} W")
-print(f"Total heat to be dissipated by the cooling system: {total_heat_dissipation} W")
+print(f"Total heat to be dissipated by the system: {total_heat_dissipation} W")
 
 # Assuming an ambient temperature of 30 degrees Celsius for the cooling system design
 T_ambient = 30  # Ambient temperature in degrees Celsius
@@ -67,12 +66,12 @@ Q_max = C_total_coolant * (max(T_motor_inlet, T_controller_inlet) - T_ambient)
 Q_actual = effectiveness * Q_max
 
 # Display results
-print(f'Effectiveness: {effectiveness:.2f}')
-print(f'Maximum possible heat transfer rate: {Q_max:.2f} W')
-print(f'Actual heat transfer rate: {Q_actual:.2f} W')
+print(f'Effectiveness: {effectiveness}')
+print(f'Maximum possible heat transfer rate: {Q_max} W')
+print(f'Actual heat transfer rate: {Q_actual} W')
 
-# Check if the cooling system meets the requirements
-if Q_actual >= total_heat_dissipation:
-    print('The cooling system is sufficient.')
-else:
-    print('The cooling system is NOT sufficient.')
+# # Check if the cooling system meets the requirements
+# if Q_actual >= total_heat_dissipation:
+#     print('The cooling system is sufficient.')
+# else:
+#     print('The cooling system is NOT sufficient.')
