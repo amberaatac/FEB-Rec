@@ -1,20 +1,20 @@
 import numpy as np
 
 # EMRAX 228 Motor
-motor_continuous_power = 75000  # Continuous power in Watts
+motor_continuous_power = 62  # Continuous power in Watts
 motor_efficiency = 0.96  # Motor efficiency
-motor_coolant_flow_rate = 6 / 60  # Coolant flow rate in kg/s (from 6 L/min to kg/s)
+motor_coolant_flow_rate = 7 / 60  # Coolant flow rate in kg/s (from 7 L/min)
 
 # Rinehart PM100DZ Motor Controller
 controller_continuous_power = motor_continuous_power  # Assuming the controller's power is the same as motor's continuous power for this calculation
 controller_efficiency = 0.97  # Controller efficiency
-controller_coolant_flow_rate = 10 / 60  # Coolant flow rate in kg/s (from 10 L/min to kg/s)
+controller_coolant_flow_rate = 12 / 60  # Coolant flow rate in kg/s (from 10 L/min to kg/s)
 
 # Combined cooling requirements
 combined_coolant_flow_rate = motor_coolant_flow_rate + controller_coolant_flow_rate  # Combined flow rate for coolant
 
 # Specific heat capacity of coolant water
-Cp_coolant = 4182  # Specific heat capacity in J/(kg*K) 
+Cp_coolant = 4200  # Specific heat capacity in J/(kg*K) 
 
 # Heat dissipation calculations
 heat_dissipated_motor = (1 - motor_efficiency) * motor_continuous_power  # Heat to be dissipated by motor
@@ -47,10 +47,9 @@ C_controller_coolant = controller_coolant_flow_rate * Cp_coolant
 C_total_coolant = combined_coolant_flow_rate * Cp_coolant
 
 # TODO: UPDATE U: Values with calculation using equation 4 and values from data sheet
-
-# Assuming an overall heat transfer coefficient (U) and heat transfer surface area (A)
-U = 300  # Overall heat transfer coefficient in W/(m^2*K)
-A = 1  # Heat transfer surface area in m^2
+# approximating an overall heat transfer coefficient (U) and heat transfer surface area (A)
+U = 0.82  # Overall heat transfer coefficient in W/(m^2*K)
+A = 0.89  # Heat transfer surface area in m^2
 
 # Calculate the NTU (Number of Transfer Units)
 NTU = U * A / C_total_coolant
