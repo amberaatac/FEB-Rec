@@ -1,7 +1,7 @@
 import numpy as np
 
 # EMRAX 228 Motor
-motor_continuous_power = 62  # Continuous power in Watts
+motor_continuous_power = 109000  # Continuous power in Watts
 motor_efficiency = 0.96  # Motor efficiency
 motor_coolant_flow_rate = 7 / 60  # Coolant flow rate in kg/s (from 7 L/min)
 
