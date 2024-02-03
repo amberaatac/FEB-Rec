@@ -46,6 +46,8 @@ C_controller_coolant = controller_coolant_flow_rate * Cp_coolant
 # Total thermal capacity rate for the combined coolant
 C_total_coolant = combined_coolant_flow_rate * Cp_coolant
 
+# TODO: UPDATE U: Values with calculation using equation 4 and values from data sheet
+
 # Assuming an overall heat transfer coefficient (U) and heat transfer surface area (A)
 U = 300  # Overall heat transfer coefficient in W/(m^2*K)
 A = 1  # Heat transfer surface area in m^2
