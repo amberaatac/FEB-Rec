@@ -6,7 +6,7 @@ motor_efficiency = 0.96  # Motor efficiency
 motor_coolant_flow_rate = 7 / 60  # Coolant flow rate in kg/s (from 7 L/min)
 
 # Rinehart PM100DZ Motor Controller
-controller_continuous_power = motor_continuous_power  # Assuming the controller's power is the same as motor's continuous power for this calculation
+controller_continuous_power = 78200  # Assuming the controller's power is the same as motor's continuous power for this calculation
 controller_efficiency = 0.97  # Controller efficiency
 controller_coolant_flow_rate = 12 / 60  # Coolant flow rate in kg/s (from 10 L/min to kg/s)
 
